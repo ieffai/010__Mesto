@@ -28,6 +28,8 @@ npm run dev
 ## Development
 
 - [ ] code refactoring;
-- [ ] add avatar popup;
+- [x] add avatar popup;
+- [ ] add delete function;
+- [x] add better UX in popups;
 - [ ] add like counter. 
 

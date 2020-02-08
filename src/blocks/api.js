@@ -3,33 +3,15 @@ import CardList from "./card-list/card-list";
 export default class Api {
     constructor(options) {
         this.baseUrl = options.baseUrl;
-        this.headers = options.headers;
-        this.getUserInfo();
-        this.getInitialCards();
-        
+        this.headers = options.headers; 
     }
-    getUserInfo() {
-        fetch(`${this.baseUrl}/users/me`, {
-            method: 'GET',
-            headers: this.headers
-        })
-        .then(res => {
-            if (res.ok) {
-                return res.json();
-            }
-            return Promise.reject(`Ошибка: ${res.status}`);
-        })    
-        .then((userInfo) => {
-            const authorName = document.querySelector('.user__name');
-            const authorJob = document.querySelector('.user__about');   
-            authorName.textContent = userInfo.name;
-            authorJob.textContent = userInfo.about;
-        })
-        .catch((err) => {
-            console.log(err);
-        });
-    }
-    
+    getResponse(res) {
+        if (res.ok) {
+            return res.json();
+        }
+        return Promise.reject(`Ошибка: ${res.status}`);
+    }    
+
     getInitialCards() {
         fetch(`${this.baseUrl}/cards`, {
             method: 'GET',
@@ -51,8 +33,28 @@ export default class Api {
           });
     }
     
-    userEdit(nameValue, aboutValue) {
-        renderLoading(true);
+    getUserInfo() {
+        fetch(`${this.baseUrl}/users/me`, {
+            method: 'GET',
+            headers: this.headers
+        })
+        .then(this.getResponse)
+
+        .then((userInfo) => {
+            const name = document.querySelector('.user__name');
+            const about = document.querySelector('.user__about'); 
+            const avatar = document.querySelector('.user__photo');  
+            name.textContent = userInfo.name;
+            about.textContent = userInfo.about;
+            avatar.style.backgroundImage = `url(${userInfo.avatar})`;
+        })
+        .catch((err) => {
+            console.log(err);
+        });
+    }
+
+    sendUserInfo(nameValue, aboutValue) {
+
         fetch(`${this.baseUrl}/users/me`, {
             method: 'PATCH',
             headers: this.headers,
@@ -61,12 +63,8 @@ export default class Api {
                 about: aboutValue
             })
         })
-        .then(res => {
-            if (res.ok) {
-                return res.json();
-            }
-            return Promise.reject(`Ошибка: ${res.status}`);
-        })    
+        .then(this.getResponse)  
+
         .then(() => {
           this.getUserInfo();
         })
@@ -74,13 +72,11 @@ export default class Api {
             console.log(err);
         })
         .finally(() => {
-  
-            renderLoading(false);
+            console.log('Я сходил и поменял тебе имя, че еще надо?!');;
         });
     } 
-    
+
     addNewCard(nameValue, linkValue) {
-        renderLoading(true);
         fetch(`${this.baseUrl}/cards`, {
             method: 'POST',
             headers: this.headers,
@@ -89,12 +85,8 @@ export default class Api {
                 link: linkValue
             })
         })
-        .then(res => {
-            if (res.ok) {
-                return res.json();
-            }
-            return Promise.reject(`Ошибка: ${res.status}`);
-        })    
+        .then(this.getResponse) 
+
         .then(() => {
             this.getInitialCards();
         })
@@ -102,8 +94,28 @@ export default class Api {
             console.log(err);
         })
         .finally(() => {
-            renderLoading(false);
+            console.log('Когда ты уже наиграешься?...');
         });
     }
  
+    uploadAvatar(linkValue) {
+        fetch(`${this.baseUrl}/users/me/avatar`, {
+            method: 'PATCH',
+            headers: this.headers,
+            body: JSON.stringify({
+                avatar: linkValue
+            })
+        })
+        .then(this.getResponse)  
+          
+        .then(() => {
+          this.getUserInfo();
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+        .finally(() => {
+            console.log('Теперь красивый?');;
+        });
+    }
 }
