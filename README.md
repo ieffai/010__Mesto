@@ -12,7 +12,7 @@ Interactive page where you can add photos, delete them and to like them
 
 ## Demo link
 
-https://ieffai.github.io/010__Mesto.io/
+https://ieffai.github.io/010__Mesto/
 
 ## Local deploy
 
