@@ -5,7 +5,7 @@ import './popup-uploader.css';
 import Api from "../api";
 
 const api = new Api({
-    baseUrl: 'http://95.216.175.5/cohort4',
+    baseUrl: 'https://95.216.175.5/cohort4',
     headers: {
       authorization: 'cff214a0-7ac6-44ce-b23a-2f2cd5eb7637',
       'Content-Type': 'application/json'
