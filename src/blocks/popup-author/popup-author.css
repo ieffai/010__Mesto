@@ -1,0 +1,22 @@
+@import url(./__content/popup-author__content.css);
+@import url(./__button-close/popup-author__button-close.css);
+@import url(./__title/popup-author__title.css);
+@import url(./__form/popup-author__form.css);
+@import url(./__input/popup-author__input.css);
+@import url(./__input-error/popup-author__input-error.css);
+@import url(./__button-save/popup-author__button-save.css);
+@import url(./__button-save/_disabled/popup-author__button-save_disabled.css);
+@import url(./_visible/popup-author_visible.css);
+
+.popup-author {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: none;
+}

@@ -1,0 +1,14 @@
+.profile__button {
+  align-self: flex-start;
+}
+
+@media screen and (max-width: 980px) {
+  .profile__button {
+    align-self: center;
+    margin-bottom: 40px;
+  }
+}
+.profile__button:hover {
+  background-color: white;
+  color: black;
+}

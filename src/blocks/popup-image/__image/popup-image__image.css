@@ -1,0 +1,8 @@
+.popup-image__image {
+    position: relative;
+    width: auto;
+    max-width: 80vw;
+    max-height: 80vh;
+    background: none;
+    box-sizing: border-box;
+}

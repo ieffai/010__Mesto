@@ -1,0 +1,14 @@
+@import url(../button/button.css);
+
+.profile {
+  min-height: 300px;
+  display: flex;
+  align-self: flex-start;
+  padding-top: 30px;
+}
+
+@media screen and (max-width: 980px) {
+  .profile {
+    flex-direction: column;
+  }
+}
