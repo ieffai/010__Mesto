@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Mesto</title>
-  <link rel="stylesheet" href="index.865e6266857d5d5be4e4.css">
+  <link rel="stylesheet" href="index.f85cc774d3ef88b239c0.css">
 </head>
 <body>
   <div class="root">
@@ -34,10 +34,10 @@
         <img src="./images/close.svg" alt="" class="popup-author__button-close">
         <h3 class="popup-author__title">Редактировать профиль</h3>
         <form class="popup-author__form" name="author">
-            <input type="text" name="name" class="popup-author__input" placeholder="Имя" required minlength="2">
-            <div class = "popup-author__input-error" id='popup-author_field1'></div>
-            <input type="text" name="job" class="popup-author__input" placeholder="О себе" required minlength="2">
-            <div class = "popup-author__input-error" id='popup-author_field2'></div>
+            <input type="text" name="name" class="popup-author__input" placeholder="Имя" required minlength="2" id='popup-author_field1'> 
+            <div class = "popup-author__input-error" id='error-author_field1'></div>
+            <input type="text" name="job" class="popup-author__input" placeholder="О себе" required minlength="2" id='popup-author_field2'>
+            <div class = "popup-author__input-error" id='error-author_field2'></div>
             <button type class="button popup-author__button-save" disabled>Сохранить</button>
         </form>
       </div>
@@ -55,18 +55,29 @@
         <img src="./images/close.svg" alt="" class="popup-uploader__button-close">
         <h3 class="popup-uploader__title">Новое место</h3>
         <form class="popup-uploader__form" name="uploader">
-            <input type="text" name="place" class="popup-uploader__input" placeholder="Название" required minlength="2">
-            <div class = "popup-uploader__input-error" id='popup-uploader_field1'></div>
-            <input type="url" name="link" class="popup-uploader__input" placeholder="Ссылка на картинку" required>
-            <div class = "popup-uploader__input-error" id='popup-uploader_field2'></div>
+            <input type="text" name="place" class="popup-uploader__input" placeholder="Название" required minlength="2" maxlength="30" id='popup-uploader_field1'>
+            <div class = "popup-uploader__input-error" id='error-uploader_field1'></div>
+            <input type="url" name="link" class="popup-uploader__input" placeholder="Ссылка на картинку" required id='popup-uploader_field2'>
+            <div class = "popup-uploader__input-error" id='error-uploader_field2'></div>
             <button type class="button popup-uploader__button-upload" disabled>+</button>
         </form>
       </div>
     </div>    
-    
+  
+    <div class="popup-avatar">
+      <div class="popup-avatar__content">
+        <img src="./images/close.svg" alt="" class="popup-avatar__button-close">
+        <h3 class="popup-avatar__title">Редактировать аватар</h3>
+        <form class="popup-avatar__form" name="avatar">
+            <input type="url" name="avatar" class="popup-avatar__input" placeholder="Ссылка на аватар" required id='popup-avatar_field1'>
+            <div class = "popup-avatar__input-error" id='error-avatar_field1'></div>
+            <button type class="button popup-avatar__button-save" disabled>Сохранить</button>
+        </form>
+      </div>
+    </div>
 
 
   </div>
-  <script src="main.20333d401dbc1f37f888.js"></script>
+  <script src="main.4b0249b73d426f019730.js"></script>
 </body>
 </html>
