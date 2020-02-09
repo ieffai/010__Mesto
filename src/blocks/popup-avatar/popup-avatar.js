@@ -1,15 +1,8 @@
 import Component from "../component";
-
-import './popup-avatar.css';
 import Api from "../api";
+import './popup-avatar.css';
 
-const api = new Api({
-    baseUrl: 'https://95.216.175.5/cohort4',
-    headers: {
-      authorization: 'cff214a0-7ac6-44ce-b23a-2f2cd5eb7637',
-      'Content-Type': 'application/json'
-    }
-});
+
 export default class PopupAvatar extends Component { 
     constructor (...args) {  
     super(...args);
@@ -70,6 +63,14 @@ export default class PopupAvatar extends Component {
     сhangeAvatar() {
         const avatarForm = document.forms.avatar;  
         const url = avatarForm.elements.avatar;
+        const serverUrl = NODE_ENV === 'development' ? 'http://praktikum.tk/cohort6' : 'https://praktikum.tk';
+        const api = new Api({
+            baseUrl: serverUrl,
+            headers: {
+            authorization: 'cd21394a-f920-4ae5-9101-693fbfcfd353',
+            'Content-Type': 'application/json'
+            }
+        });
         api.uploadAvatar(url.value);
     }
 

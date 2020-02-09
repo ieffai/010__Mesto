@@ -3,18 +3,28 @@ import './card-list.css';
 import Card from "../card/card";
 
 export default class CardList { 
-    constructor (container, list) {
+    constructor (container, cardlist) {
         this.container = container;
-        this.cards = list;
+        this.cardlist = cardlist;
     }
 
-    addCard (name, link) {
-        const { cardElement } = new Card(name, link);
-        this.cards.push(cardElement);
+    addCard (name, link, likes) {
+        const { cardElement } = new Card(name, link, likes, owner._id);
+        this.cardlist.push(cardElement);
         this.container.appendChild(cardElement);
     }
 
-     render() {
-        this.cards.forEach(card => this.addCard(card.link, card.name))
+    ownerCheck(card) {
+        if (card.owner._id !== '1e8883c74b1f4e612b645bb0') {
+            console.log('A');
+            //return false;
+        }
+        console.log('B');
+        //return true;
+    }
+
+    render() {
+        this.cardlist.forEach(item => this.addCard(item.link, item.name, item.likes, this.ownerCheck(item) ))
     } 
 }
+//card.owner = this.ownerCheck(item);

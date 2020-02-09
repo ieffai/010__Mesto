@@ -1,14 +1,5 @@
 import Component from "../component";
-
 import Api from "../api";
-
-const api = new Api({
-    baseUrl: 'https://95.216.175.5/cohort4',
-    headers: {
-      authorization: 'cff214a0-7ac6-44ce-b23a-2f2cd5eb7637',
-      'Content-Type': 'application/json'
-    }
-});
 
 import './popup-author.css';
 
@@ -93,6 +84,14 @@ export default class PopupAuthor extends Component {
         const authorForm = document.forms.author;  
         const name = authorForm.elements.name;
         const about = authorForm.elements.job;
+        const serverUrl = NODE_ENV === 'development' ? 'http://praktikum.tk/cohort6' : 'https://praktikum.tk';
+        const api = new Api({
+            baseUrl: serverUrl,
+            headers: {
+              authorization: 'cd21394a-f920-4ae5-9101-693fbfcfd353',
+              'Content-Type': 'application/json'
+            }
+        });
         api.sendUserInfo(name.value, about.value);
     }
 }

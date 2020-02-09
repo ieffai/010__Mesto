@@ -1,5 +1,5 @@
 import "./index.css";
-
+const serverUrl = NODE_ENV === 'development' ? 'http://praktikum.tk/cohort6' : 'https://praktikum.tk';
 
 import PopupAuthor from "./blocks/popup-author/popup-author";
 import PopupImage from "./blocks/popup-image/popup-image";
@@ -7,14 +7,14 @@ import PopupUploader from "./blocks/popup-uploader/popup-uploader";
 import PopupAvatar from "./blocks/popup-avatar/popup-avatar";
 import Api from "./blocks/api";
 
+
 const api = new Api({
-    baseUrl: 'https://95.216.175.5/cohort4',
+    baseUrl: serverUrl,
     headers: {
-      authorization: 'cff214a0-7ac6-44ce-b23a-2f2cd5eb7637',
+      authorization: 'cd21394a-f920-4ae5-9101-693fbfcfd353',
       'Content-Type': 'application/json'
     }
 });
-
 api.getUserInfo();
 api.getInitialCards();
 

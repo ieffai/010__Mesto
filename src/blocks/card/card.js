@@ -1,14 +1,13 @@
 import './card.css';
-
+import Api from "../api";
 export default class Card {
-    constructor(link, name) {
-        this.cardElement = this.createCard(link, name);
+    constructor(link, name, likes) {
+        this.cardElement = this.createCard(link, name, likes);
         this.cardElement.querySelector('.card__like-icon').addEventListener('click', this.like);
         this.cardElement.querySelector('.card__delete-icon').addEventListener('click', this.remove);   
-        // this.counter = this.counter.likes;
     }
 
-    createCard(linkValue, nameValue) {
+    createCard(linkValue, nameValue, likesValue) {
         const placeCard = document.createElement('div');
         const cardImage = document.createElement('div');
         const deleteIcon = document.createElement('button');
@@ -22,14 +21,18 @@ export default class Card {
         placeCard.classList.add('card');
         cardImage.classList.add('card__image');
         cardImage.style.backgroundImage = `url(${linkValue})`;
+
         deleteIcon.classList.add('card__delete-icon');
+        // console.log(idValue.length);
+
+
         cardDescription.classList.add('card__description');
         cardName.classList.add('card__name');
         cardName.textContent = nameValue;
         likeContainer.classList.add('card__like-container');
         likeIcon.classList.add('card__like-icon');
         likeCounter.classList.add('card__like-counter');
-        likeCounter.textContent = '1'; //this.likes.length;
+        likeCounter.textContent = likesValue.length;
  
         placeCard.appendChild(cardImage);
         cardImage.appendChild(deleteIcon);
@@ -49,6 +52,29 @@ export default class Card {
     remove(event) {
         const card = event.target.closest('.card');
         card.parentNode.removeChild(card);
+        const serverUrl = NODE_ENV === 'development' ? 'http://praktikum.tk/cohort6' : 'https://praktikum.tk';
+        const api = new Api({
+            baseUrl: serverUrl,
+            headers: {
+              authorization: 'cd21394a-f920-4ae5-9101-693fbfcfd353',
+              'Content-Type': 'application/json'
+            }
+        });
+        api.delCard();
     }
+
+    // renderDelButtob(isOwn, cardElement) {
+    //     if (!isOwn) {
+    //         cardElement.querySelector('.card__image').removeChild(cardElement.querySelector('.card__delete-icon'));
+    //     }
+    // }
+
+    // rednderRemoveCard(event) {
+    //     if (event.target.classList.contains('card__delete-icon') && window.confirm('Мир справится без этой красоты?')) {
+    //         api.delCard(event.path[2].id)
+    //             .then(() => this.remove(event))
+    //             .catch((err) => console.log(err));
+    //     }
+    // }
 
 }

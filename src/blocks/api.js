@@ -17,16 +17,13 @@ export default class Api {
             method: 'GET',
             headers: this.headers
         })
-        .then(res => {
-            if (res.ok) {
-                return res.json();
-            }
-            return Promise.reject(`Ошибка: ${res.status}`);
-        })    
+        .then(this.getResponse)
+           
         .then((result) => {
             const cardContainer = document.querySelector('.card-list');
             const cardList = new CardList(cardContainer, result);
             cardList.render();
+            console.log(result);
         })
         .catch((err) => {
             console.log(err);
@@ -82,7 +79,7 @@ export default class Api {
             headers: this.headers,
             body: JSON.stringify({
                 name: nameValue,
-                link: linkValue
+                link: linkValue,
             })
         })
         .then(this.getResponse) 
@@ -98,6 +95,25 @@ export default class Api {
         });
     }
  
+    delCard(id){
+        fetch(`${this.baseUrl}/cards/${id}`, {
+            method: 'DELETE',
+            headers: this.headers,
+        })
+        .then(this.getResponse) 
+
+        .then(() => {
+            console.log('del');
+            //this.getInitialCards();
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+        .finally(() => {
+            console.log('Мне она тоже не нравилась');
+        });
+    }
+
     uploadAvatar(linkValue) {
         fetch(`${this.baseUrl}/users/me/avatar`, {
             method: 'PATCH',
