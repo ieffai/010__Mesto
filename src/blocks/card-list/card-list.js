@@ -9,7 +9,7 @@ export default class CardList {
     }
 
     addCard (name, link, likes) {
-        const { cardElement } = new Card(name, link, likes, owner._id);
+        const { cardElement } = new Card(name, link, likes);
         this.cardlist.push(cardElement);
         this.container.appendChild(cardElement);
     }
