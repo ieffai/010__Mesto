@@ -63,18 +63,6 @@ export default class Card {
         api.delCard();
     }
 
-    // renderDelButtob(isOwn, cardElement) {
-    //     if (!isOwn) {
-    //         cardElement.querySelector('.card__image').removeChild(cardElement.querySelector('.card__delete-icon'));
-    //     }
-    // }
 
-    // rednderRemoveCard(event) {
-    //     if (event.target.classList.contains('card__delete-icon') && window.confirm('Мир справится без этой красоты?')) {
-    //         api.delCard(event.path[2].id)
-    //             .then(() => this.remove(event))
-    //             .catch((err) => console.log(err));
-    //     }
-    // }
 
 }
