@@ -45,12 +45,12 @@ export default class Card {
         return placeCard;
     }
     
-    like(event) {
-        event.target.classList.toggle('card__like-icon_liked');
+    like() {
+        this.classList.toggle('card__like-icon_liked');
     }
 
-    remove(event) {
-        const card = event.target.closest('.card');
+    remove() {
+        const card = this.closest('.card');
         card.parentNode.removeChild(card);
         const serverUrl = NODE_ENV === 'development' ? 'http://praktikum.tk/cohort6' : 'https://praktikum.tk';
         const api = new Api({

@@ -26,8 +26,7 @@ export default class PopupAuthor extends Component {
         this.autofill();
         if(event.target.closest('.user__button')){
             this.domElement.classList.add('popup-author_visible');
-          }
-       
+        }
     }
 
     hide() {
@@ -56,7 +55,7 @@ export default class PopupAuthor extends Component {
         }  
 
         else if (input.validity.valueMissing) {
-            errorName.innerHTML = valid.validationMiss;
+            error.innerHTML = valid.validationMiss;
             authorBtn.setAttribute('disabled', true);
             authorBtn.classList.remove('popup-author__button-save_disabled');
         } 
