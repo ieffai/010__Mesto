@@ -24,7 +24,7 @@ export default class CardList {
     }
 
     render() {
-        this.cardlist.forEach(item => this.addCard(item.link, item.name, item.likes, this.ownerCheck(item) ))
+        this.cardlist.forEach(item => this.addCard(item.link, item.name, item.likes))
     } 
 }
 //card.owner = this.ownerCheck(item);
