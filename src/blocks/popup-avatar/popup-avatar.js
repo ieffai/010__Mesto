@@ -1,5 +1,4 @@
 import Component from "../component";
-import Api from "../api";
 import './popup-avatar.css';
 
 
@@ -11,7 +10,7 @@ export default class PopupAvatar extends Component {
     this.hide = this.hide.bind(this);  
     
     }
-    show() {
+    show(event) {
 
         if(event.target.closest('.user__photo')){
             this.domElement.classList.add('popup-avatar_visible');
@@ -19,7 +18,7 @@ export default class PopupAvatar extends Component {
        
     }
 
-    hide() {
+    hide(event) {
         if(event.target.classList.contains('popup-avatar__button-close')){
             this.domElement.classList.remove('popup-avatar_visible');  
         }
@@ -63,14 +62,6 @@ export default class PopupAvatar extends Component {
     сhangeAvatar() {
         const avatarForm = document.forms.avatar;  
         const url = avatarForm.elements.avatar;
-        const serverUrl = NODE_ENV === 'development' ? 'http://praktikum.tk/cohort6' : 'https://praktikum.tk';
-        const api = new Api({
-            baseUrl: serverUrl,
-            headers: {
-            authorization: 'cd21394a-f920-4ae5-9101-693fbfcfd353',
-            'Content-Type': 'application/json'
-            }
-        });
         api.uploadAvatar(url.value);
     }
 

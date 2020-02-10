@@ -10,7 +10,7 @@ export default class PopupImage extends Component {
     this.hide = this.hide.bind(this);  
     
     }
-    show() {
+    show(event) {
         if (event.target.classList.contains('card__image')){
             this.domElement.classList.add('popup-image_visible');
             const link = event.target.style.backgroundImage;
@@ -20,7 +20,7 @@ export default class PopupImage extends Component {
        
     }
 
-    hide() {
+    hide(event) {
         if(event.target.classList.contains('popup-image__button-close')){
             this.domElement.classList.remove('popup-image_visible');  
         }

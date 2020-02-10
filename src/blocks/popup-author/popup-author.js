@@ -1,5 +1,4 @@
 import Component from "../component";
-import Api from "../api";
 
 import './popup-author.css';
 
@@ -22,14 +21,14 @@ export default class PopupAuthor extends Component {
         aboutField.setAttribute('value', about.textContent);
     }
 
-    show() {
+    show(event) {
         this.autofill();
         if(event.target.closest('.user__button')){
             this.domElement.classList.add('popup-author_visible');
         }
     }
 
-    hide() {
+    hide(event) {
         if(event.target.classList.contains('popup-author__button-close')){
             this.domElement.classList.remove('popup-author_visible');  
         }
@@ -79,18 +78,10 @@ export default class PopupAuthor extends Component {
         }
     }
 
-    сhangeName() {
+    сhangeName(api) {
         const authorForm = document.forms.author;  
         const name = authorForm.elements.name;
         const about = authorForm.elements.job;
-        const serverUrl = NODE_ENV === 'development' ? 'http://praktikum.tk/cohort6' : 'https://praktikum.tk';
-        const api = new Api({
-            baseUrl: serverUrl,
-            headers: {
-              authorization: 'cd21394a-f920-4ae5-9101-693fbfcfd353',
-              'Content-Type': 'application/json'
-            }
-        });
         api.sendUserInfo(name.value, about.value);
     }
 }

@@ -23,24 +23,24 @@ const author = document.querySelector('.popup-author');
 const image = document.querySelector('.popup-image');
 const avatar = document.querySelector('.popup-avatar');
 
-const popupAuthor = new PopupAuthor(author);
+const popupAuthor = new PopupAuthor(author, api);
 const popupImage = new PopupImage(image);
-const popupUploader = new PopupUploader(uploader);
-const popupAvatar = new PopupAvatar(avatar);
+const popupUploader = new PopupUploader(uploader, api);
+const popupAvatar = new PopupAvatar(avatar, api);
 
 
 const root = document.querySelector('.root');
-root.addEventListener('click', () => {
-    popupAuthor.show();
-    popupImage.show();
-    popupUploader.show();
-    popupAvatar.show()
+root.addEventListener('click', (event) => {
+    popupAuthor.show(event);
+    popupImage.show(event);
+    popupUploader.show(event);
+    popupAvatar.show(event)
     });
 root.addEventListener('click', () => {
-    popupAuthor.hide();
-    popupImage.hide();
-    popupUploader.hide();
-    popupAvatar.hide()
+    popupAuthor.hide(event);
+    popupImage.hide(event);
+    popupUploader.hide(event);
+    popupAvatar.hide(event)
     });
 
 const uploaderForm = document.forms.uploader;
@@ -49,7 +49,7 @@ uploaderForm.addEventListener('input', () => {
     });
 uploaderForm.addEventListener('submit', () => {
     event.preventDefault(); 
-    popupUploader.uploadCard();
+    popupUploader.uploadCard(api);
     });
 
 const authorForm = document.forms.author;
@@ -58,7 +58,7 @@ authorForm.addEventListener('input', () => {
     });
 authorForm.addEventListener('submit', () => {
     event.preventDefault();
-    popupAuthor.сhangeName(); 
+    popupAuthor.сhangeName(api); 
     });
 
 const avatarForm = document.forms.avatar;
@@ -67,5 +67,5 @@ avatarForm.addEventListener('input', () => {
     });
 avatarForm.addEventListener('submit', () => {
     event.preventDefault();
-    popupAvatar.сhangeAvatar(); 
+    popupAvatar.сhangeAvatar(api); 
     });
