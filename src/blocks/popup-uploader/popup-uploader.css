@@ -1,0 +1,22 @@
+@import url(./__content/popup-uploader__content.css);
+@import url(./__button-close/popup-uploader__button-close.css);
+@import url(./__title/popup-uploader__title.css);
+@import url(./__form/popup-uploader__form.css);
+@import url(./__input/popup-uploader__input.css);
+@import url(./__input-error/popup-uploader__input-error.css);
+@import url(./__button-upload/popup-uploader__button-upload.css);
+@import url(./__button-upload/_disabled/popup-uploader__button-upload_disabled.css);
+@import url(./_visible/popup-uploader_visible.css);
+
+.popup-uploader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: none;
+}
