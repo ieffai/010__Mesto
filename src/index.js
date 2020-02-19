@@ -14,7 +14,7 @@ import Api from "./blocks/api";
 const api = new Api({
     baseUrl: serverUrl,
     headers: {
-      authorization: 'cd21394a-f920-4ae5-9101-693fbfcfd353',
+      authorization: 'cff214a0-7ac6-44ce-b23a-2f2cd5eb7637',
       'Content-Type': 'application/json'
     }
 });
