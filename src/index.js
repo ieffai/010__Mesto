@@ -1,5 +1,8 @@
 import "./index.css";
-//const serverUrl = NODE_ENV === 'development' ? 'http://praktikum.tk/cohort6' : 'https://praktikum.tk';
+const serverUrl =
+  NODE_ENV === "development"
+    ? "http://praktikum.tk/cohort6"
+    : "https://praktikum.tk/cohort6";
 
 import PopupAuthor from "./blocks/popup-author/popup-author";
 import PopupImage from "./blocks/popup-image/popup-image";
@@ -9,7 +12,7 @@ import Api from "./blocks/api";
 
 
 const api = new Api({
-    baseUrl: 'https://praktikum.tk/cohort6',
+    baseUrl: serverUrl,
     headers: {
       authorization: 'cd21394a-f920-4ae5-9101-693fbfcfd353',
       'Content-Type': 'application/json'
