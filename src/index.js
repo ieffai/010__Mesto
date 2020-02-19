@@ -1,8 +1,8 @@
 import "./index.css";
 const serverUrl =
   NODE_ENV === "development"
-    ? "http://praktikum.tk/cohort6"
-    : "https://praktikum.tk/cohort6";
+    ? "http://praktikum.tk/cohort4"
+    : "https://praktikum.tk/cohort4";
 
 import PopupAuthor from "./blocks/popup-author/popup-author";
 import PopupImage from "./blocks/popup-image/popup-image";
