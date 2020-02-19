@@ -9,7 +9,7 @@ import Api from "./blocks/api";
 
 
 const api = new Api({
-    baseUrl: 'https://95.216.175.5/cohort6',
+    baseUrl: 'https://praktikum.tk/cohort6',
     headers: {
       authorization: 'cd21394a-f920-4ae5-9101-693fbfcfd353',
       'Content-Type': 'application/json'
